@@ -48,38 +48,92 @@ links.querySelectorAll("a").forEach((link) => {
   const nextBtn = document.getElementById("carousel-next");
   if (!track) return;
 
-  const slides = track.querySelectorAll(".carousel__slide");
+  const slides = Array.from(track.querySelectorAll(".carousel__slide"));
   const total = slides.length;
   let current = 0;
   let autoTimer = null;
+  let isTransitioning = false;
+
+  // Clone first and last slides for infinite loop
+  const firstClone = slides[0].cloneNode(true);
+  const lastClone = slides[total - 1].cloneNode(true);
+  firstClone.classList.add("carousel__clone");
+  lastClone.classList.add("carousel__clone");
+  track.appendChild(firstClone);
+  track.insertBefore(lastClone, slides[0]);
+
+  // Offset by 1 to account for prepended clone
+  track.style.transform = "translateX(-100%)";
 
   // Build dot indicators
   for (let i = 0; i < total; i++) {
     const dot = document.createElement("button");
     dot.className = "carousel__dot" + (i === 0 ? " active" : "");
     dot.setAttribute("aria-label", "Go to slide " + (i + 1));
-    dot.addEventListener("click", function () { goTo(i); });
+    dot.addEventListener("click", function () { slideTo(i); });
     dotsContainer.appendChild(dot);
   }
   const dots = dotsContainer.querySelectorAll(".carousel__dot");
 
-  function goTo(index) {
-    if (index < 0) index = total - 1;
-    if (index >= total) index = 0;
-    current = index;
-    track.style.transform = "translateX(-" + (current * 100) + "%)";
+  function updateDots() {
     dots.forEach(function (d, i) {
       d.classList.toggle("active", i === current);
     });
+  }
+
+  function slideTo(index) {
+    if (isTransitioning) return;
+    isTransitioning = true;
+    current = index;
+    // +1 offset because of prepended clone
+    track.style.transition = "transform 0.5s cubic-bezier(0.4, 0, 0.2, 1)";
+    track.style.transform = "translateX(-" + ((current + 1) * 100) + "%)";
+    updateDots();
     resetAuto();
   }
 
-  prevBtn.addEventListener("click", function () { goTo(current - 1); });
-  nextBtn.addEventListener("click", function () { goTo(current + 1); });
+  function slideNext() {
+    if (isTransitioning) return;
+    isTransitioning = true;
+    current++;
+    track.style.transition = "transform 0.5s cubic-bezier(0.4, 0, 0.2, 1)";
+    track.style.transform = "translateX(-" + ((current + 1) * 100) + "%)";
+    updateDots();
+    resetAuto();
+  }
 
-  // Auto-advance every 8 seconds
+  function slidePrev() {
+    if (isTransitioning) return;
+    isTransitioning = true;
+    current--;
+    track.style.transition = "transform 0.5s cubic-bezier(0.4, 0, 0.2, 1)";
+    track.style.transform = "translateX(-" + ((current + 1) * 100) + "%)";
+    updateDots();
+    resetAuto();
+  }
+
+  // After transition ends, snap to real slide if on a clone
+  track.addEventListener("transitionend", function () {
+    isTransitioning = false;
+    if (current >= total) {
+      current = 0;
+      track.style.transition = "none";
+      track.style.transform = "translateX(-100%)";
+      updateDots();
+    } else if (current < 0) {
+      current = total - 1;
+      track.style.transition = "none";
+      track.style.transform = "translateX(-" + ((current + 1) * 100) + "%)";
+      updateDots();
+    }
+  });
+
+  prevBtn.addEventListener("click", function () { slidePrev(); });
+  nextBtn.addEventListener("click", function () { slideNext(); });
+
+  // Auto-advance every 24 seconds
   function startAuto() {
-    autoTimer = setInterval(function () { goTo(current + 1); }, 8000);
+    autoTimer = setInterval(function () { slideNext(); }, 24000);
   }
   function resetAuto() {
     clearInterval(autoTimer);
@@ -108,8 +162,8 @@ links.querySelectorAll("a").forEach((link) => {
 
   track.addEventListener("touchend", function () {
     if (Math.abs(touchDelta) > 50) {
-      if (touchDelta < 0) goTo(current + 1);
-      else goTo(current - 1);
+      if (touchDelta < 0) slideNext();
+      else slidePrev();
     }
     startAuto();
   });
@@ -119,8 +173,8 @@ links.querySelectorAll("a").forEach((link) => {
     var rect = carousel.getBoundingClientRect();
     var inView = rect.top < window.innerHeight && rect.bottom > 0;
     if (!inView) return;
-    if (e.key === "ArrowLeft") goTo(current - 1);
-    if (e.key === "ArrowRight") goTo(current + 1);
+    if (e.key === "ArrowLeft") slidePrev();
+    if (e.key === "ArrowRight") slideNext();
   });
 })();
 
