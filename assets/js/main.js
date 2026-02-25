@@ -81,6 +81,20 @@ links.querySelectorAll("a").forEach((link) => {
     });
   }
 
+  var viewport = document.querySelector(".carousel__viewport");
+
+  function updateViewportHeight() {
+    var allSlides = track.querySelectorAll(".carousel__slide");
+    // current + 1 because of prepended clone
+    var activeSlide = allSlides[current + 1];
+    if (activeSlide) {
+      var content = activeSlide.querySelector(".motorsports__content");
+      if (content) {
+        viewport.style.height = content.scrollHeight + "px";
+      }
+    }
+  }
+
   function slideTo(index) {
     if (isTransitioning) return;
     isTransitioning = true;
@@ -89,6 +103,7 @@ links.querySelectorAll("a").forEach((link) => {
     track.style.transition = "transform 0.5s cubic-bezier(0.4, 0, 0.2, 1)";
     track.style.transform = "translateX(-" + ((current + 1) * 100) + "%)";
     updateDots();
+    updateViewportHeight();
     resetAuto();
   }
 
@@ -99,6 +114,7 @@ links.querySelectorAll("a").forEach((link) => {
     track.style.transition = "transform 0.5s cubic-bezier(0.4, 0, 0.2, 1)";
     track.style.transform = "translateX(-" + ((current + 1) * 100) + "%)";
     updateDots();
+    updateViewportHeight();
     resetAuto();
   }
 
@@ -109,6 +125,7 @@ links.querySelectorAll("a").forEach((link) => {
     track.style.transition = "transform 0.5s cubic-bezier(0.4, 0, 0.2, 1)";
     track.style.transform = "translateX(-" + ((current + 1) * 100) + "%)";
     updateDots();
+    updateViewportHeight();
     resetAuto();
   }
 
@@ -120,11 +137,22 @@ links.querySelectorAll("a").forEach((link) => {
       track.style.transition = "none";
       track.style.transform = "translateX(-100%)";
       updateDots();
+      // Snap height instantly (no animation during clone-to-real jump)
+      viewport.style.transition = "none";
+      updateViewportHeight();
+      requestAnimationFrame(function () {
+        viewport.style.transition = "";
+      });
     } else if (current < 0) {
       current = total - 1;
       track.style.transition = "none";
       track.style.transform = "translateX(-" + ((current + 1) * 100) + "%)";
       updateDots();
+      viewport.style.transition = "none";
+      updateViewportHeight();
+      requestAnimationFrame(function () {
+        viewport.style.transition = "";
+      });
     }
   });
 
@@ -140,6 +168,10 @@ links.querySelectorAll("a").forEach((link) => {
     startAuto();
   }
   startAuto();
+
+  // Set initial viewport height and update on resize
+  updateViewportHeight();
+  window.addEventListener("resize", updateViewportHeight);
 
   // Pause on hover
   var carousel = document.getElementById("carousel");
@@ -221,3 +253,163 @@ form.addEventListener("submit", async (e) => {
     btn.disabled = false;
   }
 });
+
+/* ─── Service Inquiry Modal ──────────────────────────────────────── */
+
+(function () {
+  var SERVICE_CONFIG = {
+    "data-analytics": {
+      title: "Data Analytics & Telemetry",
+      message: "I'm interested in learning more about Tedder Engineering's data analytics and telemetry services, including MoTeC data analysis, driver coaching, and sector performance breakdowns. Please let me know how we can work together."
+    },
+    "race-engineering": {
+      title: "Race Engineering",
+      message: "I'm interested in learning more about Tedder Engineering's race engineering services, including vehicle setup, race strategy, tire management, and fuel planning. Please let me know how we can work together."
+    },
+    "vehicle-dynamics": {
+      title: "Vehicle Dynamics & Performance",
+      message: "I'm interested in learning more about Tedder Engineering's vehicle dynamics and performance services, including suspension optimization, balance tuning, and performance simulation. Please let me know how we can work together."
+    },
+    "trackside-support": {
+      title: "Trackside Support",
+      message: "I'm interested in learning more about Tedder Engineering's trackside support services, including on-site engineering, real-time strategy, and pit wall support. Please let me know how we can work together."
+    }
+  };
+
+  var overlay = document.getElementById("service-modal");
+  if (!overlay) return;
+  var modalPanel = overlay.querySelector(".modal");
+  var closeBtn = document.getElementById("modal-close");
+  var sForm = document.getElementById("service-form");
+  var titleEl = document.getElementById("modal-title");
+  var subjectField = document.getElementById("modal-subject");
+  var serviceField = document.getElementById("modal-service-field");
+  var replytoField = document.getElementById("modal-replyto");
+  var messageField = document.getElementById("modal-message");
+  var errorEl = document.getElementById("modal-error");
+  var successEl = document.getElementById("modal-success");
+  var submitBtn = document.getElementById("modal-submit");
+  var autoCloseTimer = null;
+
+  function openModal(serviceKey) {
+    var config = SERVICE_CONFIG[serviceKey];
+    if (!config) return;
+
+    // Reset state
+    sForm.reset();
+    errorEl.hidden = true;
+    successEl.hidden = true;
+    submitBtn.disabled = false;
+    submitBtn.textContent = "Send Inquiry";
+    sForm.style.display = "";
+
+    // Fill service-specific content
+    titleEl.textContent = "Inquire About: " + config.title;
+    subjectField.value = "Tedder Engineering Inquiry: " + config.title;
+    serviceField.value = config.title;
+    messageField.value = config.message;
+
+    // Show modal
+    overlay.classList.add("open");
+    overlay.setAttribute("aria-hidden", "false");
+    document.body.classList.add("modal-open");
+
+    // Focus the name field after transition
+    setTimeout(function () {
+      document.getElementById("modal-name").focus();
+    }, 350);
+  }
+
+  function closeModal() {
+    overlay.classList.remove("open");
+    overlay.setAttribute("aria-hidden", "true");
+    document.body.classList.remove("modal-open");
+    clearTimeout(autoCloseTimer);
+  }
+
+  // Close button
+  closeBtn.addEventListener("click", closeModal);
+
+  // Click outside modal panel to close
+  overlay.addEventListener("click", function (e) {
+    if (e.target === overlay) closeModal();
+  });
+
+  // Escape key to close
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape" && overlay.classList.contains("open")) {
+      closeModal();
+    }
+  });
+
+  // Attach click handlers to all service cards
+  document.querySelectorAll(".card[data-service]").forEach(function (card) {
+    card.addEventListener("click", function () {
+      openModal(card.getAttribute("data-service"));
+    });
+
+    // Keyboard: Enter or Space opens modal
+    card.addEventListener("keydown", function (e) {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        openModal(card.getAttribute("data-service"));
+      }
+    });
+  });
+
+  // Form submission
+  sForm.addEventListener("submit", async function (e) {
+    e.preventDefault();
+    errorEl.hidden = true;
+
+    // Sync _replyto with the email field
+    replytoField.value = document.getElementById("modal-email").value;
+
+    var originalText = submitBtn.textContent;
+    submitBtn.textContent = "Sending...";
+    submitBtn.disabled = true;
+
+    try {
+      var response = await fetch(sForm.action, {
+        method: "POST",
+        body: new FormData(sForm),
+        headers: { Accept: "application/json" }
+      });
+
+      if (response.ok) {
+        // Success: hide form, show success message
+        sForm.style.display = "none";
+        successEl.hidden = false;
+        autoCloseTimer = setTimeout(closeModal, 2500);
+      } else {
+        throw new Error("Formspree returned " + response.status);
+      }
+    } catch (err) {
+      // Show error banner
+      errorEl.hidden = false;
+
+      // Fallback to mailto
+      var name = document.getElementById("modal-name").value;
+      var email = document.getElementById("modal-email").value;
+      var org = document.getElementById("modal-org").value;
+      var series = document.getElementById("modal-series").value;
+      var eventDate = document.getElementById("modal-date").value;
+      var message = messageField.value;
+
+      var subject = encodeURIComponent(subjectField.value);
+      var bodyParts = [];
+      bodyParts.push("From: " + name + " (" + email + ")");
+      if (org) bodyParts.push("Team/Organization: " + org);
+      if (series) bodyParts.push("Racing Series: " + series);
+      if (eventDate) bodyParts.push("Event Date/Timeline: " + eventDate);
+      bodyParts.push("");
+      bodyParts.push(message);
+      var body = encodeURIComponent(bodyParts.join("\n"));
+
+      window.location.href = "mailto:Brenttedder@tedderengineering.com?subject=" + subject + "&body=" + body;
+
+      submitBtn.textContent = originalText;
+      submitBtn.disabled = false;
+    }
+  });
+})();

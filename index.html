@@ -72,7 +72,7 @@
       </div>
       <div class="services__grid">
 
-        <div class="card fade-in">
+        <div class="card fade-in" data-service="data-analytics" tabindex="0" role="button">
           <div class="card__icon">
             <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
               <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
@@ -82,7 +82,7 @@
           <p class="card__text">MoTeC data analysis, driver coaching through data, lap comparison, and sector performance breakdown. We turn raw telemetry into actionable insights.</p>
         </div>
 
-        <div class="card fade-in">
+        <div class="card fade-in" data-service="race-engineering" tabindex="0" role="button">
           <div class="card__icon">
             <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
               <circle cx="12" cy="12" r="10"></circle>
@@ -93,7 +93,7 @@
           <p class="card__text">Vehicle setup, race strategy, tire management, and fuel planning. Comprehensive engineering support that puts you in the best position on track.</p>
         </div>
 
-        <div class="card fade-in">
+        <div class="card fade-in" data-service="vehicle-dynamics" tabindex="0" role="button">
           <div class="card__icon">
             <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
               <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
@@ -105,7 +105,7 @@
           <p class="card__text">Suspension optimization, balance tuning, and performance simulation. We engineer the mechanical platform to extract maximum grip and consistency.</p>
         </div>
 
-        <div class="card fade-in">
+        <div class="card fade-in" data-service="trackside-support" tabindex="0" role="button">
           <div class="card__icon">
             <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
               <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>
@@ -252,7 +252,7 @@
           <div class="carousel__track" id="carousel-track">
 
             <!-- Card 1: IMSA Daytona -->
-            <div class="carousel__slide">
+            <div class="carousel__slide" data-image-layout="landscape">
               <div class="motorsports__content">
                 <div class="motorsports__photo">
                   <img src="assets/images/imsa-daytona-2026.jpg" alt="No. 66 BMW M4 GT4 EVO on track at Daytona International Speedway" loading="lazy">
@@ -270,7 +270,7 @@
             </div>
 
             <!-- Card 2: GT World Challenge Barber -->
-            <div class="carousel__slide">
+            <div class="carousel__slide" data-image-layout="landscape">
               <div class="motorsports__content">
                 <div class="motorsports__photo">
                   <img src="assets/images/barber-podium-2025.jpg" alt="Thunder Bunny Racing on the P1 podium at Barber Motorsports Park 2025 GT World Challenge America" loading="lazy">
@@ -288,7 +288,7 @@
             </div>
 
             <!-- Card 3: Pikes Peak -->
-            <div class="carousel__slide">
+            <div class="carousel__slide" data-image-layout="portrait">
               <div class="motorsports__content">
                 <div class="motorsports__photo">
                   <img src="assets/images/pikes-peak-2024.jpg" alt="Laura Hayes and team celebrating the 2024 Pikes Peak GT4 Trophy win with the #22 Toyota GR Supra GT4" loading="lazy">
@@ -306,7 +306,7 @@
             </div>
 
             <!-- Card 4: Apple TV+ -->
-            <div class="carousel__slide">
+            <div class="carousel__slide" data-image-layout="landscape">
               <div class="motorsports__content">
                 <div class="motorsports__photo">
                   <img src="assets/images/apple-tv-hill-climb.png" alt="Apple TV+ Adventure: Hill Climb episode thumbnail featuring Laura Hayes at Pikes Peak" loading="lazy">
@@ -324,7 +324,7 @@
             </div>
 
             <!-- Card 5: Testing & Vehicle Dynamics -->
-            <div class="carousel__slide">
+            <div class="carousel__slide" data-image-layout="portrait">
               <div class="motorsports__content">
                 <div class="motorsports__photo">
                   <img src="assets/images/wind-tunnel-a2.jpg" alt="BMW M4 GT4 EVO in the A2 Wind Tunnel" loading="lazy">
@@ -342,7 +342,7 @@
             </div>
 
             <!-- Card 6: Instagram -->
-            <div class="carousel__slide">
+            <div class="carousel__slide" data-image-layout="portrait">
               <div class="motorsports__content">
                 <div class="motorsports__photo">
                   <img src="assets/images/instagram-feed.jpg" alt="@tedder_engineering Instagram feed" loading="lazy">
@@ -433,6 +433,57 @@
       </div>
     </div>
   </footer>
+
+  <!-- ─── Service Inquiry Modal ──────────────────────────────────────── -->
+  <div class="modal-overlay" id="service-modal" aria-hidden="true" role="dialog" aria-labelledby="modal-title">
+    <div class="modal">
+      <button class="modal__close" id="modal-close" aria-label="Close modal">&times;</button>
+      <h3 class="modal__title" id="modal-title">Inquire About: Service Name</h3>
+      <div class="modal__divider"></div>
+      <form class="modal__form" id="service-form" action="https://formspree.io/f/xzdakzdw" method="POST">
+        <input type="hidden" name="_subject" id="modal-subject" value="">
+        <input type="hidden" name="_replyto" id="modal-replyto" value="">
+        <input type="hidden" name="service" id="modal-service-field" value="">
+
+        <div class="form__group">
+          <label class="form__label" for="modal-name">Name <span class="form__required">*</span></label>
+          <input type="text" name="name" id="modal-name" required class="form__input" placeholder="Your name">
+        </div>
+        <div class="form__group">
+          <label class="form__label" for="modal-email">Email <span class="form__required">*</span></label>
+          <input type="email" name="email" id="modal-email" required class="form__input" placeholder="your@email.com">
+        </div>
+        <div class="form__row">
+          <div class="form__group form__group--half">
+            <label class="form__label" for="modal-org">Team / Organization</label>
+            <input type="text" name="organization" id="modal-org" class="form__input" placeholder="Team or organization name">
+          </div>
+          <div class="form__group form__group--half">
+            <label class="form__label" for="modal-series">Racing Series</label>
+            <input type="text" name="series" id="modal-series" class="form__input" placeholder="e.g. IMSA, SRO, GridLife">
+          </div>
+        </div>
+        <div class="form__group">
+          <label class="form__label" for="modal-date">Event Date / Timeline</label>
+          <input type="text" name="event_date" id="modal-date" class="form__input" placeholder="e.g. March 2026, Sebring weekend">
+        </div>
+        <div class="form__group">
+          <label class="form__label" for="modal-message">Message <span class="form__required">*</span></label>
+          <textarea name="message" id="modal-message" required class="form__input form__textarea" rows="4"></textarea>
+        </div>
+
+        <div class="modal__error" id="modal-error" role="alert" hidden>
+          Something went wrong. Please try again or email us directly.
+        </div>
+
+        <div class="modal__success" id="modal-success" hidden>
+          Thanks! We'll be in touch.
+        </div>
+
+        <button type="submit" class="btn btn--primary btn--full" id="modal-submit">Send Inquiry</button>
+      </form>
+    </div>
+  </div>
 
   <script src="assets/js/main.js"></script>
 </body>
