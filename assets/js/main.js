@@ -248,7 +248,7 @@ form.addEventListener("submit", async (e) => {
       "From: " + name + " (" + email + ")\n\n" + message
     );
     window.location.href =
-      "mailto:info@tedderengineering.com?subject=" + subject + "&body=" + body;
+      "mailto:brenttedder@tedderengineering.com?subject=" + subject + "&body=" + body;
     btn.textContent = originalText;
     btn.disabled = false;
   }
