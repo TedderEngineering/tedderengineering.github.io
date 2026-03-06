@@ -1072,7 +1072,7 @@ body.modal-open {
 .events-banner__top {
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 16px;
   margin-bottom: 12px;
 }
 
@@ -1083,14 +1083,14 @@ body.modal-open {
   background: rgba(240, 168, 72, 0.12);
   border: 1px solid rgba(240, 168, 72, 0.2);
   border-radius: 8px;
-  padding: 6px;
+  width: 56px;
+  height: 42px;
   flex-shrink: 0;
 }
 
 .events-banner__icon {
-  width: 44px;
-  height: 33px;
-  opacity: 0.9;
+  width: 40px;
+  height: 27px;
 }
 
 .events-banner__label {
@@ -1098,7 +1098,7 @@ body.modal-open {
 }
 
 .events-banner__title {
-  font-size: 20px;
+  font-size: 26px;
   font-weight: 800;
   color: #F0A848;
   font-family: 'Barlow Condensed', sans-serif;
@@ -1169,13 +1169,18 @@ body.modal-open {
     max-width: 100%;
   }
 
+  .events-banner__icon-wrap {
+    width: 46px;
+    height: 36px;
+  }
+
   .events-banner__icon {
-    width: 36px;
-    height: 27px;
+    width: 32px;
+    height: 22px;
   }
 
   .events-banner__title {
-    font-size: 17px;
+    font-size: 21px;
   }
 
   .events-banner__meta {
