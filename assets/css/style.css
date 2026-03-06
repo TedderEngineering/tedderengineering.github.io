@@ -1036,3 +1036,163 @@ body.modal-open {
     font-size: 18px;
   }
 }
+
+/* ─── Events Banner ──────────────────────────────────────────────── */
+
+.events-banner-wrap {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 28px;
+}
+
+.events-banner {
+  display: block;
+  max-width: 520px;
+  width: 100%;
+  text-decoration: none;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  padding: 16px 20px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.events-banner:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(240, 168, 72, 0.4);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  color: inherit;
+}
+
+.events-banner__top {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 12px;
+}
+
+.events-banner__icon-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(240, 168, 72, 0.12);
+  border: 1px solid rgba(240, 168, 72, 0.2);
+  border-radius: 8px;
+  padding: 6px;
+  flex-shrink: 0;
+}
+
+.events-banner__icon {
+  width: 44px;
+  height: 33px;
+  opacity: 0.9;
+}
+
+.events-banner__label {
+  flex: 1;
+}
+
+.events-banner__title {
+  font-size: 20px;
+  font-weight: 800;
+  color: #F0A848;
+  font-family: 'Barlow Condensed', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  line-height: 1;
+}
+
+.events-banner__subtitle {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.45);
+  margin-top: 2px;
+  letter-spacing: 0.3px;
+}
+
+.events-banner__arrow {
+  font-size: 20px;
+  color: rgba(255, 255, 255, 0.25);
+  transition: color 0.25s, transform 0.25s;
+  flex-shrink: 0;
+}
+
+.events-banner:hover .events-banner__arrow {
+  color: #F0A848;
+  transform: translateX(3px);
+}
+
+.events-banner__meta {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 6px;
+  padding: 10px 12px;
+}
+
+.events-banner__meta-left {
+  flex: 1;
+}
+
+.events-banner__upcoming {
+  font-size: 9px;
+  color: rgba(255, 255, 255, 0.35);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-weight: 700;
+  margin-bottom: 2px;
+}
+
+.events-banner__name {
+  color: #F0F0F0;
+  font-size: 14px;
+  font-weight: 700;
+  font-family: 'Barlow Condensed', sans-serif;
+}
+
+.events-banner__date {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 11px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+@media (max-width: 480px) {
+  .events-banner {
+    max-width: 100%;
+  }
+
+  .events-banner__icon {
+    width: 36px;
+    height: 27px;
+  }
+
+  .events-banner__title {
+    font-size: 17px;
+  }
+
+  .events-banner__meta {
+    flex-direction: column;
+    gap: 6px;
+    align-items: stretch;
+  }
+
+  .events-banner__name {
+    font-size: 13px;
+  }
+
+  .events-banner__date {
+    font-size: 10px;
+  }
+
+  .events-banner__arrow {
+    font-size: 18px;
+  }
+}
