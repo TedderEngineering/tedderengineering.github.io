@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800&family=Barlow+Condensed:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  body {
+    background: #2B2B2B;
+    font-family: 'Barlow', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 40px 20px;
+    margin: 0;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .card {
+    width: 100%;
+    max-width: 440px;
+    border-radius: 10px;
+    padding: 20px 18px;
+    box-sizing: border-box;
+  }
+  a { text-decoration: none; }
+  .store-btn {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    border-radius: 8px;
+    padding: 12px 14px;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-decoration: none;
+  }
+  .store-btn:hover { transform: translateY(-1px); }
+</style>
+</head>
+<body>
+
+<!-- Finding Grip Card -->
+<div class="card" style="background: linear-gradient(135deg, #1A0D00 0%, #2D1A0A 40%, #333333 100%); border: 1px solid rgba(255,107,0,0.35); border-left: 4px solid #FF6B00;">
+  
+  <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px;">
+    <div style="display: flex; align-items: center; gap: 12px;">
+      <img src="data:image/png;base64,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" style="width: 40px; height: 40px; border-radius: 10px;">
+      <div>
+        <div style="font-size: 18px; font-weight: 800; color: #FF6B00; font-family: 'Barlow Condensed', sans-serif; text-transform: uppercase; letter-spacing: 1.5px; line-height: 1;">Finding Grip</div>
+        <div style="font-size: 11px; color: rgba(255,255,255,0.45); margin-top: 3px;">Tire pressures & damper tuning</div>
+      </div>
+    </div>
+  </div>
+
+  <div style="display: flex; gap: 8px;">
+    <a href="#" class="store-btn" style="background: rgba(255,107,0,0.12); border: 1px solid rgba(255,107,0,0.3);">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="#F0F0F0"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+      <span style="font-size: 14px; color: #F0F0F0; font-weight: 700; font-family: 'Barlow Condensed', sans-serif;">iPhone</span>
+    </a>
+    <a href="#" class="store-btn" style="background: rgba(255,107,0,0.12); border: 1px solid rgba(255,107,0,0.3);">
+      <svg width="18" height="20" viewBox="0 0 18 20" fill="#F0F0F0"><path d="M1.21 0.37L9.53 8.22L17.06 0.71C17.41 0.36 17.82 0.36 18 0.71L18 19.29C17.82 19.64 17.41 19.64 17.06 19.29L9.53 11.78L1.21 19.63C0.79 20.02 0 19.72 0 19.14L0 0.86C0 0.28 0.79 -0.02 1.21 0.37Z"/><path d="M9.53 8.22L1.21 0.37C1.5 0.09 1.94 0 2.3 0.16L15.65 7.44L9.53 8.22Z" fill-opacity="0.8"/><path d="M9.53 11.78L15.65 12.56L2.3 19.84C1.94 20 1.5 19.91 1.21 19.63L9.53 11.78Z" fill-opacity="0.6"/></svg>
+      <span style="font-size: 14px; color: #F0F0F0; font-weight: 700; font-family: 'Barlow Condensed', sans-serif;">Android</span>
+    </a>
+  </div>
+</div>
+
+<!-- Racetrace Card (for comparison) -->
+<div class="card" style="background: linear-gradient(135deg, #1A2030, #333333); border: 1px solid rgba(56,217,232,0.35); border-left: 4px solid #38D9E8;">
+  <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+    <div style="font-size: 28px; margin-bottom: 8px;">
+      <svg width="32" height="24" viewBox="0 0 32 24" fill="none">
+        <line x1="0" y1="4" x2="10" y2="4" stroke="#E85454" stroke-width="2"/>
+        <line x1="10" y1="4" x2="16" y2="14" stroke="#E85454" stroke-width="2"/>
+        <line x1="16" y1="14" x2="22" y2="4" stroke="#E85454" stroke-width="2"/>
+        <line x1="22" y1="4" x2="32" y2="4" stroke="#E85454" stroke-width="2"/>
+        <line x1="0" y1="14" x2="10" y2="14" stroke="#4A9FF5" stroke-width="2"/>
+        <line x1="10" y1="14" x2="16" y2="4" stroke="#4A9FF5" stroke-width="2"/>
+        <line x1="16" y1="4" x2="22" y2="14" stroke="#4A9FF5" stroke-width="2"/>
+        <line x1="22" y1="14" x2="32" y2="14" stroke="#4A9FF5" stroke-width="2"/>
+        <line x1="0" y1="20" x2="32" y2="20" stroke="#F5A623" stroke-width="2"/>
+      </svg>
+    </div>
+    <span style="font-size: 10px; color: #38D9E8; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; border: 1px solid rgba(56,217,232,0.3); padding: 2px 6px; border-radius: 3px;">Open App ↗</span>
+  </div>
+  <div style="font-size: 16px; font-weight: 800; color: #38D9E8; font-family: 'Barlow Condensed', sans-serif; text-transform: uppercase; letter-spacing: 1px;">Racetrace</div>
+  <div style="font-size: 12px; color: #949494; margin-top: 4px; line-height: 1.5;">Every position. Every lap. Analyzed.</div>
+  <div style="font-size: 11px; color: #38D9E8; margin-top: 8px; font-weight: 500;">racetrace.tedderengineering.com</div>
+</div>
+
+</body>
+</html>
