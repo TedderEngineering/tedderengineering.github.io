@@ -3,10 +3,42 @@
 <head>
   <meta charset="utf-8">
   <title>Events | Tedder Engineering</title>
-  <meta http-equiv="refresh" content="0;url=/events/cota-sro-2026/">
-  <style>body{background:#232323;color:#F0F0F0;font-family:'Barlow',sans-serif;display:flex;justify-content:center;align-items:center;min-height:100vh;margin:0}</style>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body { background:#232323; color:#F0F0F0; font-family:'Barlow',sans-serif; margin:0; min-height:100vh; display:flex; flex-direction:column; align-items:center; padding:40px 16px; box-sizing:border-box; }
+    h1 { font-family:'Barlow Condensed',sans-serif; font-size:34px; font-weight:800; color:#F0A848; text-transform:uppercase; letter-spacing:2px; margin:20px 0 4px; }
+    .sub { font-size:12px; color:rgba(255,255,255,0.45); letter-spacing:0.3px; margin-bottom:28px; }
+    .cards { display:flex; flex-direction:column; gap:12px; width:100%; max-width:520px; }
+    a.card { display:flex; flex-direction:row; gap:16px; align-items:center; text-decoration:none; background:rgba(0,0,0,0.25); border:1px solid rgba(255,255,255,0.06); border-radius:6px; padding:14px 16px; transition:all 0.2s ease; }
+    a.card:hover { background:rgba(240,168,72,0.1); }
+    a.card:hover .arrow { color:#F0A848; transform:translateX(4px); }
+    .live { font-size:9px; color:#F0A848; text-transform:uppercase; letter-spacing:1.5px; font-weight:700; margin-bottom:2px; }
+    .title { font-size:16px; color:#F0F0F0; font-weight:700; font-family:'Barlow Condensed',sans-serif; }
+    .meta { font-size:11px; color:rgba(255,255,255,0.5); font-weight:500; white-space:nowrap; }
+    .arrow { font-size:18px; color:rgba(255,255,255,0.25); transition:color 0.2s,transform 0.2s; flex-shrink:0; }
+    .body-grow { flex:1; }
+  </style>
 </head>
 <body>
-  <p>Redirecting to <a href="/events/cota-sro-2026/" style="color:#F0A848;">SRO at COTA 2026</a>...</p>
+  <h1>Events</h1>
+  <div class="sub">Race weekend info &amp; schedules</div>
+  <div class="cards">
+    <a class="card" href="/events/wrl-road-america-2026/">
+      <div class="body-grow">
+        <div class="live">Live</div>
+        <div class="title">WRL @ Road America 2026</div>
+      </div>
+      <div class="meta">April 24&#8211;26, 2026 &middot; Elkhart Lake, WI</div>
+      <div class="arrow">&#8594;</div>
+    </a>
+    <a class="card" href="/events/cota-sro-2026/">
+      <div class="body-grow">
+        <div class="live">Live</div>
+        <div class="title">GT World Texas &#8212; SRO at COTA</div>
+      </div>
+      <div class="meta">April 23&#8211;26, 2026 &middot; Austin, TX</div>
+      <div class="arrow">&#8594;</div>
+    </a>
+  </div>
 </body>
 </html>
