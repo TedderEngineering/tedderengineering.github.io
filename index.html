@@ -332,6 +332,121 @@
     </div>
   </section>
 
+  <!-- ─── VBOX → MoTeC Converter ────────────────────────────────────── -->
+  <section class="section converter" id="converter">
+    <div class="container">
+      <div class="converter__hero fade-in">
+        <div class="converter__hero-text">
+          <div class="converter__badge">Product</div>
+          <a href="https://converter.tedderengineering.com" class="converter__logo-link">
+            <span class="converter__wordmark">VBOX &rarr; MoTeC Converter</span>
+          </a>
+          <p class="converter__headline">From VBOX. To MoTeC. <span class="converter__gradient-text">In seconds.</span></p>
+          <p class="converter__desc">Drop your Racelogic VBOX files in and get back organized MoTeC i2 Pro data &mdash; lap timing populated, 73 channels mapped, the full race weekend ready to analyze. Built specifically for GR86 Cup teams. No Python, no scripts, no fighting with file formats.</p>
+          <div class="converter__cta-row">
+            <a href="https://converter.tedderengineering.com" class="btn btn--converter">
+              Explore Converter
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </a>
+          </div>
+        </div>
+        <div class="converter__hero-graphic">
+          <!-- Channel transformation: raw VBOX names mapped to clean MoTeC channels -->
+          <svg class="converter__channel-svg" viewBox="0 0 400 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- Column headers -->
+            <text x="148" y="26" fill="#5f7d72" font-size="10" font-weight="700" text-anchor="end" letter-spacing="0.1em" font-family="Inter, sans-serif">VBOX</text>
+            <text x="255" y="26" fill="#2dd4bf" font-size="10" font-weight="700" text-anchor="start" letter-spacing="0.1em" font-family="Inter, sans-serif">MoTeC i2</text>
+            <!-- Center divider -->
+            <line x1="200" y1="38" x2="200" y2="198" stroke="#1d3329" stroke-width="0.5"/>
+
+            <!-- Row 1: nmot -> Engine RPM -->
+            <text x="148" y="54" fill="#5f7d72" font-size="11" text-anchor="end" font-family="Inter, sans-serif">nmot</text>
+            <line class="converter__trace" x1="158" y1="50" x2="240" y2="50" stroke="#2dd4bf" stroke-width="1.5" stroke-linecap="round" style="--trace-delay: 0s"/>
+            <polyline class="converter__trace" points="234,45 241,50 234,55" stroke="#2dd4bf" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round" style="--trace-delay: 0s"/>
+            <text x="255" y="54" fill="#2dd4bf" font-size="11" font-weight="500" text-anchor="start" font-family="Inter, sans-serif">Engine RPM</text>
+
+            <!-- Row 2: ath -> Throttle Pos -->
+            <text x="148" y="88" fill="#5f7d72" font-size="11" text-anchor="end" font-family="Inter, sans-serif">ath</text>
+            <line class="converter__trace" x1="158" y1="84" x2="240" y2="84" stroke="#2dd4bf" stroke-width="1.5" stroke-linecap="round" style="--trace-delay: 0.12s"/>
+            <polyline class="converter__trace" points="234,79 241,84 234,89" stroke="#2dd4bf" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round" style="--trace-delay: 0.12s"/>
+            <text x="255" y="88" fill="#2dd4bf" font-size="11" font-weight="500" text-anchor="start" font-family="Inter, sans-serif">Throttle Pos</text>
+
+            <!-- Row 3: vwheel_fl -> Wheel Speed FL -->
+            <text x="148" y="122" fill="#5f7d72" font-size="11" text-anchor="end" font-family="Inter, sans-serif">vwheel_fl</text>
+            <line class="converter__trace" x1="158" y1="118" x2="240" y2="118" stroke="#2dd4bf" stroke-width="1.5" stroke-linecap="round" style="--trace-delay: 0.24s"/>
+            <polyline class="converter__trace" points="234,113 241,118 234,123" stroke="#2dd4bf" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round" style="--trace-delay: 0.24s"/>
+            <text x="255" y="122" fill="#2dd4bf" font-size="11" font-weight="500" text-anchor="start" font-family="Inter, sans-serif">Wheel Speed FL</text>
+
+            <!-- Row 4: vwheel_fr -> Wheel Speed FR -->
+            <text x="148" y="156" fill="#5f7d72" font-size="11" text-anchor="end" font-family="Inter, sans-serif">vwheel_fr</text>
+            <line class="converter__trace" x1="158" y1="152" x2="240" y2="152" stroke="#2dd4bf" stroke-width="1.5" stroke-linecap="round" style="--trace-delay: 0.36s"/>
+            <polyline class="converter__trace" points="234,147 241,152 234,157" stroke="#2dd4bf" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round" style="--trace-delay: 0.36s"/>
+            <text x="255" y="156" fill="#2dd4bf" font-size="11" font-weight="500" text-anchor="start" font-family="Inter, sans-serif">Wheel Speed FR</text>
+
+            <!-- Row 5: alat -> G Force Lat -->
+            <text x="148" y="190" fill="#5f7d72" font-size="11" text-anchor="end" font-family="Inter, sans-serif">alat</text>
+            <line class="converter__trace" x1="158" y1="186" x2="240" y2="186" stroke="#2dd4bf" stroke-width="1.5" stroke-linecap="round" style="--trace-delay: 0.48s"/>
+            <polyline class="converter__trace" points="234,181 241,186 234,191" stroke="#2dd4bf" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round" style="--trace-delay: 0.48s"/>
+            <text x="255" y="190" fill="#2dd4bf" font-size="11" font-weight="500" text-anchor="start" font-family="Inter, sans-serif">G Force Lat</text>
+          </svg>
+        </div>
+      </div>
+
+      <!-- Features grid -->
+      <div class="converter__features">
+        <div class="converter__feature fade-in">
+          <div class="converter__feature-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <circle cx="12" cy="10" r="3"></circle>
+              <path d="M12 21.7C17.3 17 20 13 20 10a8 8 0 1 0-16 0c0 3 2.7 7 8 11.7z"></path>
+            </svg>
+          </div>
+          <h4 class="converter__feature-title">Auto Track Detection</h4>
+          <p class="converter__feature-text">GPS coordinates identify the circuit automatically &mdash; every track on the GR Cup calendar, recognized on upload.</p>
+        </div>
+        <div class="converter__feature fade-in">
+          <div class="converter__feature-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M4 4v6h6"></path>
+              <path d="M4 10a8 8 0 1 1 2 5.3"></path>
+              <polyline points="12 7 12 12 16 14"></polyline>
+            </svg>
+          </div>
+          <h4 class="converter__feature-title">Lap Detection That Works</h4>
+          <p class="converter__feature-text">Reads the start/finish line from the VBOX HD2 itself, so i2 splits laps the moment you open the file.</p>
+        </div>
+        <div class="converter__feature fade-in">
+          <div class="converter__feature-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <line x1="8" y1="6" x2="21" y2="6"></line>
+              <line x1="8" y1="12" x2="21" y2="12"></line>
+              <line x1="8" y1="18" x2="21" y2="18"></line>
+              <polyline points="3 6 4 7 6 5"></polyline>
+              <polyline points="3 12 4 13 6 11"></polyline>
+              <polyline points="3 18 4 19 6 17"></polyline>
+            </svg>
+          </div>
+          <h4 class="converter__feature-title">All 73 Channels, Named</h4>
+          <p class="converter__feature-text">&ldquo;Engine RPM&rdquo; instead of &ldquo;nmot.&rdquo; Tuned for the Bosch DDU on the GR86 &mdash; no manual mapping.</p>
+        </div>
+        <div class="converter__feature fade-in">
+          <div class="converter__feature-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
+              <line x1="12" y1="11" x2="12" y2="17"></line>
+              <polyline points="9 14 12 17 15 14"></polyline>
+            </svg>
+          </div>
+          <h4 class="converter__feature-title">Multi-File Session Merge</h4>
+          <p class="converter__feature-text">Drop a folder from one session and get a single continuous LD back, with lap timing preserved across the joins.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ─── Motorsports Carousel ──────────────────────────────────────── -->
   <section class="section section--alt" id="motorsports">
     <div class="container">
