@@ -11,7 +11,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Barlow+Condensed:wght@600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/style.css?v=4">
+  <link rel="stylesheet" href="assets/css/style.css?v=5">
   <style>
     @media (max-width: 480px) {
       #events-banner { max-width: 100% !important; }
@@ -350,12 +350,11 @@
     <div class="container">
       <div class="grip__hero fade-in">
         <div class="grip__hero-text">
-          <div class="grip__badge">Product &middot; Free</div>
           <a href="https://findinggrip.tedderengineering.com" class="grip__logo-link">
             <span class="grip__wordmark">Finding Grip</span>
           </a>
-          <p class="grip__headline">Cold pressures that come in <span class="grip__gradient-text">on target.</span></p>
-          <p class="grip__desc">Turn one good reference session into cold tire pressures for today&rsquo;s track temperature, wheel temperature and run length &mdash; corner by corner. A damper tuning advisor is built in for when the balance isn&rsquo;t right. Free with a Tedder Engineering account.</p>
+          <p class="grip__headline">Cold pressures that come in <span class="grip__on-target">on target.</span></p>
+          <p class="grip__desc">A session spent chasing pressures is a session you don&rsquo;t get back. Finding Grip turns one good reference run into the cold pressures to set today &mdash; corner by corner, for this track temperature, wheel temperature and run length. A damper tuning advisor is built in for when the balance isn&rsquo;t right.</p>
           <div class="grip__cta-row">
             <a href="https://findinggrip.tedderengineering.com" class="btn btn--grip">
               Launch Finding Grip
@@ -365,42 +364,92 @@
               </svg>
             </a>
           </div>
+          <p class="grip__reassure">Free. No credit card. Works on your phone in the pit lane.</p>
         </div>
         <div class="grip__hero-graphic">
-          <!-- Four-corner cold pressure result. Illustrative numbers only. -->
-          <svg class="grip__corner-svg" viewBox="0 0 400 220" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Example result: a cold tire pressure for each corner of the car">
-            <text x="14" y="20" fill="#a8998c" font-size="9" font-weight="700" letter-spacing="0.12em" font-family="Inter, sans-serif">COLD TIRE PRESSURE</text>
-            <rect x="352" y="8" width="34" height="17" rx="8.5" fill="#12233a" stroke="#1e3a5f"/>
-            <text x="369" y="20" fill="#7cb3ff" font-size="9" font-weight="600" text-anchor="middle" font-family="Inter, sans-serif">Dry</text>
+          <!-- Today's conditions in, a cold pressure per corner out, each one coming in on its hot target. Illustrative numbers only. -->
+          <svg class="grip__corner-svg" viewBox="0 0 400 236" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Example: for today's track temperature, wheel temperature and run length, Finding Grip gives a cold pressure to set at each corner so every tire comes in on its hot target">
+            <defs>
+              <linearGradient id="grip-heat-l" gradientUnits="userSpaceOnUse" x1="24" y1="0" x2="146" y2="0">
+                <stop offset="0" stop-color="#4aa8ff"/><stop offset="1" stop-color="#ff6a00"/>
+              </linearGradient>
+              <linearGradient id="grip-heat-r" gradientUnits="userSpaceOnUse" x1="254" y1="0" x2="376" y2="0">
+                <stop offset="0" stop-color="#4aa8ff"/><stop offset="1" stop-color="#ff6a00"/>
+              </linearGradient>
+              <linearGradient id="grip-tire" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#ff8533"/><stop offset="1" stop-color="#ff6a00"/>
+              </linearGradient>
+            </defs>
 
-            <!-- Car, seen from above -->
-            <rect x="168" y="48" width="64" height="150" rx="22" fill="#170f08" stroke="#3d2c1c"/>
-            <rect x="180" y="84" width="40" height="50" rx="8" fill="none" stroke="#3d2c1c"/>
-            <text x="200" y="68" fill="#6f6257" font-size="7.5" font-weight="700" letter-spacing="0.14em" text-anchor="middle" font-family="Inter, sans-serif">FRONT</text>
+            <!-- Today's conditions -->
+            <rect x="10" y="10" width="96" height="22" rx="11" fill="#141920" stroke="#262e3a"/>
+            <text x="21" y="24.5" fill="#8c96a3" font-size="9" font-family="Inter, sans-serif">Track <tspan fill="#eef1f4" font-weight="700">62&#176;F</tspan></text>
+            <rect x="114" y="10" width="104" height="22" rx="11" fill="#141920" stroke="#262e3a"/>
+            <text x="125" y="24.5" fill="#8c96a3" font-size="9" font-family="Inter, sans-serif">Wheels <tspan fill="#eef1f4" font-weight="700">55&#176;F</tspan></text>
+            <rect x="226" y="10" width="90" height="22" rx="11" fill="#141920" stroke="#262e3a"/>
+            <text x="237" y="24.5" fill="#8c96a3" font-size="9" font-family="Inter, sans-serif">Run <tspan fill="#eef1f4" font-weight="700">40 min</tspan></text>
+            <rect x="354" y="10" width="36" height="22" rx="11" fill="#10233a" stroke="#1e3a5f"/>
+            <text x="372" y="24.5" fill="#7cb3ff" font-size="9" font-weight="600" text-anchor="middle" font-family="Inter, sans-serif">Dry</text>
 
-            <g class="grip__tile" style="--tile-delay: 0s">
-              <rect x="14" y="38" width="124" height="74" rx="8" fill="#22160c" stroke="#ff6a00" stroke-opacity="0.55"/>
-              <text x="26" y="57" fill="#a8998c" font-size="9" font-weight="700" letter-spacing="0.12em" font-family="Inter, sans-serif">LF</text>
-              <text x="26" y="85" fill="#ff8533" font-size="24" font-weight="800" font-family="Inter, sans-serif">27.2<tspan dx="4" fill="#a8998c" font-size="9" font-weight="600">PSI</tspan></text>
-              <text x="26" y="102" fill="#8a7d72" font-size="8.5" font-family="Inter, sans-serif">target hot 30.5</text>
+            <!-- Car, seen from above, with its four tires -->
+            <rect x="180" y="62" width="40" height="150" rx="16" fill="#10141a" stroke="#2c3542"/>
+            <rect x="187" y="100" width="26" height="44" rx="6" fill="none" stroke="#2c3542"/>
+            <rect class="grip__tire" x="170" y="76" width="8" height="26" rx="3" fill="url(#grip-tire)" style="--bar-delay: 0s"/>
+            <rect class="grip__tire" x="222" y="76" width="8" height="26" rx="3" fill="url(#grip-tire)" style="--bar-delay: 0.15s"/>
+            <rect class="grip__tire" x="170" y="172" width="8" height="26" rx="3" fill="url(#grip-tire)" style="--bar-delay: 0.3s"/>
+            <rect class="grip__tire" x="222" y="172" width="8" height="26" rx="3" fill="url(#grip-tire)" style="--bar-delay: 0.45s"/>
+
+            <g>
+              <rect x="10" y="48" width="150" height="80" rx="9" fill="#141920" stroke="#262e3a"/>
+              <text x="24" y="67" fill="#8c96a3" font-size="9" font-weight="700" font-family="Inter, sans-serif">LF</text>
+              <text x="146" y="67" fill="#6f7a88" font-size="8" text-anchor="end" font-family="Inter, sans-serif">set cold</text>
+              <text x="24" y="93" fill="#d6ebff" font-size="23" font-weight="800" font-family="Inter, sans-serif">27.2<tspan dx="4" fill="#6fb6ff" font-size="9" font-weight="600">psi</tspan></text>
+              <line x1="24" y1="106" x2="146" y2="106" stroke="#222a35" stroke-width="4" stroke-linecap="round"/>
+              <line class="grip__bar" x1="24" y1="106" x2="146" y2="106" stroke="url(#grip-heat-l)" stroke-width="4" stroke-linecap="round" style="--bar-delay: 0s"/>
+              <g class="grip__hit" style="--bar-delay: 0s">
+                <text x="133" y="120" fill="#3ddc97" font-size="8.5" font-weight="600" text-anchor="end" font-family="Inter, sans-serif">in at 30.5 hot</text>
+                <circle cx="141" cy="117" r="5" fill="#3ddc97"/>
+                <polyline points="138.4,117.2 140.4,119.1 143.6,115.2" stroke="#06140d" stroke-width="1.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+              </g>
             </g>
-            <g class="grip__tile" style="--tile-delay: 0.12s">
-              <rect x="262" y="38" width="124" height="74" rx="8" fill="#22160c" stroke="#ff6a00" stroke-opacity="0.55"/>
-              <text x="274" y="57" fill="#a8998c" font-size="9" font-weight="700" letter-spacing="0.12em" font-family="Inter, sans-serif">RF</text>
-              <text x="274" y="85" fill="#ff8533" font-size="24" font-weight="800" font-family="Inter, sans-serif">27.5<tspan dx="4" fill="#a8998c" font-size="9" font-weight="600">PSI</tspan></text>
-              <text x="274" y="102" fill="#8a7d72" font-size="8.5" font-family="Inter, sans-serif">target hot 30.5</text>
+            <g>
+              <rect x="240" y="48" width="150" height="80" rx="9" fill="#141920" stroke="#262e3a"/>
+              <text x="254" y="67" fill="#8c96a3" font-size="9" font-weight="700" font-family="Inter, sans-serif">RF</text>
+              <text x="376" y="67" fill="#6f7a88" font-size="8" text-anchor="end" font-family="Inter, sans-serif">set cold</text>
+              <text x="254" y="93" fill="#d6ebff" font-size="23" font-weight="800" font-family="Inter, sans-serif">27.5<tspan dx="4" fill="#6fb6ff" font-size="9" font-weight="600">psi</tspan></text>
+              <line x1="254" y1="106" x2="376" y2="106" stroke="#222a35" stroke-width="4" stroke-linecap="round"/>
+              <line class="grip__bar" x1="254" y1="106" x2="376" y2="106" stroke="url(#grip-heat-r)" stroke-width="4" stroke-linecap="round" style="--bar-delay: 0.15s"/>
+              <g class="grip__hit" style="--bar-delay: 0.15s">
+                <text x="363" y="120" fill="#3ddc97" font-size="8.5" font-weight="600" text-anchor="end" font-family="Inter, sans-serif">in at 30.5 hot</text>
+                <circle cx="371" cy="117" r="5" fill="#3ddc97"/>
+                <polyline points="368.4,117.2 370.4,119.1 373.6,115.2" stroke="#06140d" stroke-width="1.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+              </g>
             </g>
-            <g class="grip__tile" style="--tile-delay: 0.24s">
-              <rect x="14" y="134" width="124" height="74" rx="8" fill="#22160c" stroke="#ff6a00" stroke-opacity="0.55"/>
-              <text x="26" y="153" fill="#a8998c" font-size="9" font-weight="700" letter-spacing="0.12em" font-family="Inter, sans-serif">LR</text>
-              <text x="26" y="181" fill="#ff8533" font-size="24" font-weight="800" font-family="Inter, sans-serif">26.9<tspan dx="4" fill="#a8998c" font-size="9" font-weight="600">PSI</tspan></text>
-              <text x="26" y="198" fill="#8a7d72" font-size="8.5" font-family="Inter, sans-serif">target hot 30.0</text>
+            <g>
+              <rect x="10" y="146" width="150" height="80" rx="9" fill="#141920" stroke="#262e3a"/>
+              <text x="24" y="165" fill="#8c96a3" font-size="9" font-weight="700" font-family="Inter, sans-serif">LR</text>
+              <text x="146" y="165" fill="#6f7a88" font-size="8" text-anchor="end" font-family="Inter, sans-serif">set cold</text>
+              <text x="24" y="191" fill="#d6ebff" font-size="23" font-weight="800" font-family="Inter, sans-serif">26.9<tspan dx="4" fill="#6fb6ff" font-size="9" font-weight="600">psi</tspan></text>
+              <line x1="24" y1="204" x2="146" y2="204" stroke="#222a35" stroke-width="4" stroke-linecap="round"/>
+              <line class="grip__bar" x1="24" y1="204" x2="146" y2="204" stroke="url(#grip-heat-l)" stroke-width="4" stroke-linecap="round" style="--bar-delay: 0.3s"/>
+              <g class="grip__hit" style="--bar-delay: 0.3s">
+                <text x="133" y="218" fill="#3ddc97" font-size="8.5" font-weight="600" text-anchor="end" font-family="Inter, sans-serif">in at 30.0 hot</text>
+                <circle cx="141" cy="215" r="5" fill="#3ddc97"/>
+                <polyline points="138.4,215.2 140.4,217.1 143.6,213.2" stroke="#06140d" stroke-width="1.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+              </g>
             </g>
-            <g class="grip__tile" style="--tile-delay: 0.36s">
-              <rect x="262" y="134" width="124" height="74" rx="8" fill="#22160c" stroke="#ff6a00" stroke-opacity="0.55"/>
-              <text x="274" y="153" fill="#a8998c" font-size="9" font-weight="700" letter-spacing="0.12em" font-family="Inter, sans-serif">RR</text>
-              <text x="274" y="181" fill="#ff8533" font-size="24" font-weight="800" font-family="Inter, sans-serif">27.2<tspan dx="4" fill="#a8998c" font-size="9" font-weight="600">PSI</tspan></text>
-              <text x="274" y="198" fill="#8a7d72" font-size="8.5" font-family="Inter, sans-serif">target hot 30.0</text>
+            <g>
+              <rect x="240" y="146" width="150" height="80" rx="9" fill="#141920" stroke="#262e3a"/>
+              <text x="254" y="165" fill="#8c96a3" font-size="9" font-weight="700" font-family="Inter, sans-serif">RR</text>
+              <text x="376" y="165" fill="#6f7a88" font-size="8" text-anchor="end" font-family="Inter, sans-serif">set cold</text>
+              <text x="254" y="191" fill="#d6ebff" font-size="23" font-weight="800" font-family="Inter, sans-serif">27.2<tspan dx="4" fill="#6fb6ff" font-size="9" font-weight="600">psi</tspan></text>
+              <line x1="254" y1="204" x2="376" y2="204" stroke="#222a35" stroke-width="4" stroke-linecap="round"/>
+              <line class="grip__bar" x1="254" y1="204" x2="376" y2="204" stroke="url(#grip-heat-r)" stroke-width="4" stroke-linecap="round" style="--bar-delay: 0.45s"/>
+              <g class="grip__hit" style="--bar-delay: 0.45s">
+                <text x="363" y="218" fill="#3ddc97" font-size="8.5" font-weight="600" text-anchor="end" font-family="Inter, sans-serif">in at 30.0 hot</text>
+                <circle cx="371" cy="215" r="5" fill="#3ddc97"/>
+                <polyline points="368.4,215.2 370.4,217.1 373.6,213.2" stroke="#06140d" stroke-width="1.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+              </g>
             </g>
           </svg>
         </div>
@@ -408,7 +457,7 @@
 
       <!-- Features grid -->
       <div class="grip__features">
-        <div class="grip__feature fade-in">
+        <div class="grip__feature grip__feature--cold fade-in">
           <div class="grip__feature-icon">
             <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
               <path d="M12 14l4-4"></path>
@@ -419,7 +468,7 @@
           <h4 class="grip__feature-title">Cold Pressure Calculator</h4>
           <p class="grip__feature-text">Enter today&rsquo;s conditions and your hot targets. Get a cold pressure for each corner, dry or wet.</p>
         </div>
-        <div class="grip__feature fade-in">
+        <div class="grip__feature grip__feature--set fade-in">
           <div class="grip__feature-icon">
             <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
               <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
@@ -428,7 +477,7 @@
           <h4 class="grip__feature-title">Reference Sessions</h4>
           <p class="grip__feature-text">Save a baseline once: temperatures, run length, cold and hot pressures. Reuse it all season.</p>
         </div>
-        <div class="grip__feature fade-in">
+        <div class="grip__feature grip__feature--warm fade-in">
           <div class="grip__feature-icon">
             <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
               <line x1="4" y1="21" x2="4" y2="14"></line>
@@ -445,7 +494,7 @@
           <h4 class="grip__feature-title">Damper Tuning Tool</h4>
           <p class="grip__feature-text">Describe the problem by corner phase and speed. Get up to three adjustments to try, in order.</p>
         </div>
-        <div class="grip__feature fade-in">
+        <div class="grip__feature grip__feature--hot fade-in">
           <div class="grip__feature-icon">
             <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
               <polyline points="17 1 21 5 17 9"></polyline>
