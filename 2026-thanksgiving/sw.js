@@ -1,5 +1,5 @@
 // Offline support: network first, fall back to the cached copy (handy if the rental's Wi-Fi is spotty).
-const CACHE = "tg26-v35";
+const CACHE = "tg26-v39";
 const ASSETS = ["./", "./index.html", "./manifest.webmanifest", "./icon-192.png", "./icon-512.png", "./apple-touch-icon.png"];
 self.addEventListener("install", e => {
   e.waitUntil(caches.open(CACHE).then(c => c.addAll(ASSETS)).then(() => self.skipWaiting()));
